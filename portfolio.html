@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav Ahirwar | Professional Portfolio</title>
+    <!-- Chosen Palette: Midnight Blue with Cyan Gradients (Dark Blue Background, Light Gray Text, Cyan Accent) -->
+    <!-- Application Structure Plan: A single-page, vertically-scrolling portfolio. The layout is now dynamic, transitioning from a single column on mobile to a multi-column grid on large screens. This better utilizes horizontal space for key sections like Skills and Projects. -->
+    <!-- Visualization & Content Choices: Report Info: Skills -> Goal: Organize diverse skills -> Presentation: Tabbed Interface with gradient-bordered items -> Interaction: Click to toggle views -> Justification: Tabs prevent clutter. Report Info: Projects -> Goal: Showcase work -> Presentation: Responsive cards with gradient borders -> Interaction: Hover to highlight -> Justification: The card layout is dynamic and modern. The responsive grid adapts the layout for larger screens. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            /* slate-950 */
+            overflow-x: hidden;
+        }
+
+        .active-tab {
+            border-color: #06b6d4;
+            /* cyan-500 */
+            color: #06b6d4;
+            /* cyan-500 */
+            font-weight: 600;
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom gradient border styling */
+        .gradient-border-box {
+            position: relative;
+            z-index: 1;
+            border-radius: 0.5rem;
+            background: #0f172a;
+            padding: 1px;
+            display: inline-block;
+        }
+
+        .gradient-border-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 0.5rem;
+            background: linear-gradient(to right, #0ea5e9, #06b6d4);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .gradient-border-box:hover::before {
+            background: linear-gradient(to right, #06b6d4, #22d3ee);
+        }
+    </style>
+</head>
+
+<body class="text-slate-200">
+
+    <main class="pt-16">
+        <!-- Header & Navigation -->
+        <header class="bg-slate-900/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
+            <div class="flex items-center justify-between h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex-shrink-0">
+                    <a href="#"
+                        class="text-2xl font-bold bg-gradient-to-r from-sky-400 to-cyan-400 text-transparent bg-clip-text">GA</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#summary"
+                            class="text-slate-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium">Summary</a>
+                        <a href="#skills"
+                            class="text-slate-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#education"
+                            class="text-slate-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                        <a href="#projects"
+                            class="text-slate-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#contact"
+                            class="bg-cyan-600 text-white hover:bg-cyan-500 px-4 py-2 rounded-md text-sm font-medium shadow">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Professional Summary & Hero Content -->
+        <section id="summary" class="py-20 sm:py-24 lg:py-32">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1
+                    class="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-sky-400 to-cyan-400 text-transparent bg-clip-text tracking-tight animate-fade-in">
+                    Gaurav Ahirwar
+                </h1>
+                <p class="mt-4 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto animate-fade-in animate-delay-1">
+                    B.Tech Student | Aspiring Technologist
+                </p>
+                <p class="mt-6 max-w-3xl mx-auto text-base text-slate-400 animate-fade-in animate-delay-2">
+                    A Bachelor of Technology (B.Tech) student with a strong academic foundation in science, engineering,
+                    and mathematics. Experienced in Python and web development, with a proven ability to apply a
+                    methodical, process-oriented approach to problem-solving. Passionate about machine learning and
+                    artificial intelligence, seeking opportunities to gain practical experience and contribute to
+                    innovative projects.
+                </p>
+                <div class="mt-8 flex justify-center space-x-4 animate-fade-in animate-delay-3">
+                    <a href="#contact"
+                        class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-500">
+                        Get In Touch
+                    </a>
+                    <a href="https://www.linkedin.com/in/GauravAhirwar/" target="_blank"
+                        class="inline-flex items-center justify-center px-5 py-3 border border-slate-700 text-base font-medium rounded-md text-slate-200 bg-slate-800 hover:bg-slate-700">
+                        View LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 sm:py-20 bg-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-white">Core Competencies</h2>
+                    <p class="mt-2 text-lg text-slate-400">A blend of technical and academic proficiency.</p>
+                </div>
+                <div class="mt-10">
+                    <div class="border-b border-slate-700">
+                        <nav class="-mb-px flex justify-center space-x-4 sm:space-x-8" aria-label="Tabs">
+                            <button id="tab-technical"
+                                class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-slate-400 hover:border-slate-500 hover:text-slate-300 active-tab">
+                                Technical Skills
+                            </button>
+                            <button id="tab-academic"
+                                class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-slate-400 hover:border-slate-500 hover:text-slate-300">
+                                Academic & Technical
+                            </button>
+                        </nav>
+                    </div>
+                    <div id="content-technical"
+                        class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+                        <div class="gradient-border-box p-4 bg-slate-800 rounded-lg"><strong>Programming
+                                Languages:</strong> Python, C++, JavaScript</div>
+                        <div class="gradient-border-box p-4 bg-slate-800 rounded-lg"><strong>Web Development:</strong>
+                            HTML, CSS</div>
+                        <div class="gradient-border-box p-4 bg-slate-800 rounded-lg"><strong>Databases:</strong> SQL
+                        </div>
+                    </div>
+                    <div id="content-academic"
+                        class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center hidden">
+                        <div class="gradient-border-box p-4 bg-slate-800 rounded-lg"><strong>Mathematics</strong></div>
+                        <div class="gradient-border-box p-4 bg-slate-800 rounded-lg"><strong>Physics</strong></div>
+                        <div class="gradient-border-box p-4 bg-slate-800 rounded-lg"><strong>Chemistry</strong></div>
+                        <div class="gradient-border-box p-4 bg-slate-800 rounded-lg"><strong>Computer Science</strong>
+                        </div>
+                        <div class="gradient-border-box p-4 bg-slate-800 rounded-lg"><strong>Problem Solving</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-16 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-white">Education</h2>
+                    <p class="mt-2 text-lg text-slate-400">My academic journey from school to university.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900 rounded-lg p-6 shadow-sm gradient-border-box">
+                        <h3 class="text-lg font-bold text-white">Undergraduate Student | Indian Institute of Technology
+                            (IIT) Kharagpur</h3>
+                        <p class="mt-1 text-slate-300">Pursuing a Bachelor of Technology in Mining Engineering</p>
+                        <p class="text-sm text-slate-400">Kharagpur, West Bengal</p>
+                    </div>
+                    <div class="bg-slate-900 rounded-lg p-6 shadow-sm gradient-border-box">
+                        <h3 class="text-lg font-bold text-white">High School & Middle School | Kendriya Vidyalaya CMM,
+                            Jabalpur</h3>
+                        <p class="text-sm text-slate-400">Madhya Pradesh</p>
+                        <ul class="mt-2 text-slate-300 list-disc list-inside">
+                            <li>Class XII Grade: 94.4% overall</li>
+                            <li>Class X Grade: 90.4% overall</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 sm:py-20 bg-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-white">Featured Projects</h2>
+                    <p class="mt-2 text-lg text-slate-400">Applying concepts to build practical solutions.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div
+                        class="gradient-border-box bg-slate-800 rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-white">Bank Management System</h3>
+                        <p class="mt-2 text-slate-300">Developed a comprehensive system using Python and a SQL database
+                            to handle customer bank account information and track loan statuses.</p>
+                        <div class="mt-4 flex space-x-2">
+                            <span
+                                class="inline-block bg-cyan-700 text-cyan-100 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                            <span
+                                class="inline-block bg-cyan-700 text-cyan-100 text-xs font-medium px-2.5 py-0.5 rounded-full">SQL</span>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div
+                        class="gradient-border-box bg-slate-800 rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-white">Langton's Ant Simulation</h3>
+                        <p class="mt-2 text-slate-300">Created a simulation in Python that models the behavior of
+                            Langton's Ant, demonstrating proficiency in using libraries to visualize complex algorithmic
+                            processes.</p>
+                        <div class="mt-4 flex space-x-2">
+                            <span
+                                class="inline-block bg-cyan-700 text-cyan-100 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                            <span
+                                class="inline-block bg-cyan-700 text-cyan-100 text-xs font-medium px-2.5 py-0.5 rounded-full">Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sports & Activities -->
+        <section id="activities" class="py-16 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-extrabold text-white">Sports & Activities</h2>
+                <ul
+                    class="mt-6 md:flex md:justify-center md:space-x-8 text-xl font-medium text-slate-300 space-y-2 md:space-y-0">
+                    <li>Sports: Cricket, Volleyball</li>
+                    <li>National Cadet Corps (NCC)</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-950 text-slate-400">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-bold text-white">Let's Connect</h2>
+            <p class="mt-2 text-slate-500">Feel free to reach out for collaboration opportunities.</p>
+            <div class="mt-6 flex justify-center items-center space-x-6 text-2xl">
+                <a href="mailto:ahirwargaurav321@gmail.com" class="hover:text-cyan-400" aria-label="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/qr/" target="_blank" class="hover:text-cyan-400"
+                    aria-label="Instagram QR Code">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/GauravAhirwar/" target="_blank" class="hover:text-cyan-400"
+                    aria-label="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Gaurav75Ahirwar" target="_blank" class="hover:text-cyan-400"
+                    aria-label="GitHub Profile">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+            <p class="mt-8 text-sm text-slate-500">&copy; 2024 Gaurav Ahirwar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab functionality for Skills section
+            const tabTechnical = document.getElementById('tab-technical');
+            const tabAcademic = document.getElementById('tab-academic');
+            const contentTechnical = document.getElementById('content-technical');
+            const contentAcademic = document.getElementById('content-academic');
+
+            tabTechnical.addEventListener('click', () => {
+                tabTechnical.classList.add('active-tab');
+                tabAcademic.classList.remove('active-tab');
+                contentTechnical.classList.remove('hidden');
+                contentAcademic.classList.add('hidden');
+            });
+
+            tabAcademic.addEventListener('click', () => {
+                tabAcademic.classList.add('active-tab');
+                tabTechnical.classList.remove('active-tab');
+                contentAcademic.classList.remove('hidden');
+                contentTechnical.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>
